@@ -3,11 +3,10 @@ mat=[[i for i in range(5)]for x in range(5) ]
 # print (mat)
 res=list()
 for c in key:
+    if c=='J':
+        c='I'
     if c not in res:
-        if c=='J':
-            res.append('I')
-        else:
-            res.append(c)
+        res.append(c)
 for i in range(65,91):
     c=chr(i)
     if c not in res:
@@ -29,7 +28,7 @@ def loc(c):
 
 def encrypt():
     msg=str(input("Enter the message ").upper()).replace(" ", "")
-    for i in range(0,len(msg),2):
+    for i in range(0,len(msg)-1,2):
         if msg[i]==msg[i+1]:
             msg=msg[:i+1]+"X"+msg[i+1:]
     if len(msg)%2 !=0:
